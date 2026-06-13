@@ -1,21 +1,21 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM VARIABLES
+   ========================================================================== */
 :root {
-  /* White & Gold Theme Colours */
-  --primary: #C5A059;       /* Rich Warm Gold */
-  --ink: #1C1A17;           /* Deep Charcoal (Better than pure black for contrast) */
-  --ink-muted: #706B63;     /* Muted bronze-gray for secondary text */
-  --surface: #FFFFFF;       /* Pure White Background Canvas */
-  --card: #FDFBF7;          /* Soft Cream-White for your project cards */
-  --border: #EAE3D2;        /* Elegant, soft gold-tinted borders */
+  /* Honey Gold Light Theme Palette */
+  --primary: #B38F44;       /* Deep Gold for main buttons/accents */
+  --ink: #1F1B12;           /* Deep golden-charcoal text */
+  --ink-muted: #736851;     /* Soft bronze-gray secondary text */
+  --surface: #F9F3E3;       /* Warm, rich Honey Gold background canvas */
+  --card: #FFFDF9;          /* Bright clean cream for your project cards */
+  --border: #E8DCBD;        /* Soft gold border frame lines */
   
-  /* Priority Accents (Adjusted to blend with a Gold palette) */
+  /* System Metrics & Priorities */
   --pri-high: #D96B43;
-  --pri-med: #C5A059;       /* Matches your gold theme */
+  --pri-med: #B38F44;       
   --pri-low: #6B8E23;
 
-  /* ... Keep your existing type scale and spacing variables underneath ... */
-}
-.
-  /* type scale */
+  /* Typography Scale */
   --display: clamp(2.2rem, 6vw, 3.6rem);
   --h1: 2rem;
   --h2: 1.6rem;
@@ -24,7 +24,7 @@
   --cap: 0.875rem;
   --sm: 0.75rem;
 
-  /* Spacing - 8-point grid, in rem */
+  /* Spacing Scale (8-point geometric layout system) */
   --s4: 0.25rem;
   --s8: 0.5rem;
   --s12: 0.75rem;
@@ -34,28 +34,32 @@
   --s48: 3rem;
   --s64: 4rem;
 
-  /* Corner radius */
+  /* Spatial Rounding */
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 16px;
   --r-pill: 999px;
 
-  /* soft shadow */
-  --shadow: 0 4px 16px rgba(26, 26, 26, 0.06);
+  /* Soft Ambient Shadow tokens */
+  --shadow: 0 4px 16px rgba(43, 39, 30, 0.06);
 }
 
-/* 2. DARK MODE */
+/* ==========================================================================
+   2. DARK MODE OVERRIDES (Black & Gold)
+   ========================================================================== */
 body.dark {
-  --primary: #E5C17D;       /* A slightly brighter gold so it pops against black */
-  --ink: #F5F2EB;           /* Warm ivory text color */
-  --ink-muted: #9E9789;     /* Soft sand gray for subtitles */
-  --surface: #0A0A0A;       /* Pure deep black background canvas */
-  --card: #141414;          /* Subtle off-black card background to create depth */
-  --border: rgba(229, 193, 125, 0.25); /* Gold borders that subtly break up the black */
+  --primary: #E5C17D;                  /* Brighter gold to pop against pitch black */
+  --ink: #F5F2EB !important;           /* Warm ivory text color */
+  --ink-muted: #9E9789 !important;     /* Soft sand gray for subtitles */
+  --surface: #0A0A0A !important;       /* Pure deep black canvas background */
+  --card: #141414 !important;          /* Subtle off-black card surfaces */
+  --border: rgba(229, 193, 125, 0.25); /* Gold lines creating beautiful breaks in black */
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
 }
 
-/* 3. RESET + BASE */
+/* ==========================================================================
+   3. RESET + BASE LAYOUT
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -85,14 +89,12 @@ ul {
   list-style: none;
 }
 
-/* Layout container centres content, caps width */
 .container {
   max-width: 1040px;
   margin: 0 auto;
   padding: 0 var(--s24);
 }
 
-/* Section wrapper consistent vertical rhythm */
 .section {
   padding: var(--s64) 0;
 }
@@ -117,16 +119,18 @@ ul {
   margin-bottom: var(--s32);
 }
 
-/* 4. NAVIGATION */
-/* * 4. NAVIGATION */
+/* ==========================================================================
+   4. NAVIGATION BAR
+   ========================================================================== */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: var(--surface);
-  border-bottom: 2px solid var(--border); /* Enhanced to 2px for a more distinct gold accent line */
+  border-bottom: 2px solid var(--border); /* Distinct gold break line */
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+
 .nav-inner {
   display: flex;
   align-items: center;
@@ -164,9 +168,16 @@ ul {
   font-size: 1rem;
   cursor: pointer;
   line-height: 1;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* --------- 5. HERO --------- */
+.theme-btn:hover {
+  border-color: var(--primary);
+}
+
+/* ==========================================================================
+   5. HERO BANNER
+   ========================================================================== */
 .hero {
   padding: var(--s64) 0;
   min-height: 78vh;
@@ -210,7 +221,9 @@ ul {
   gap: var(--s16);
 }
 
-/* --------- 6. BUTTONS --------- */
+/* ==========================================================================
+   6. ACTIONS & BUTTON TOKEN PARSING
+   ========================================================================== */
 .btn {
   display: inline-block;
   padding: var(--s12) var(--s24);
@@ -218,7 +231,7 @@ ul {
   font-weight: 600;
   font-size: var(--body);
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.2s ease;
+  transition: transform 0.15s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
 .btn:hover {
@@ -233,9 +246,12 @@ ul {
 .btn-secondary {
   border: 2px solid var(--border);
   color: var(--ink);
+  background-color: transparent;
 }
 
-/* --------- 7. PROJECTS GRID + CARDS --------- */
+/* ==========================================================================
+   7. PROJECTS GRID & ARCHITECTURAL CARDS
+   ========================================================================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -250,11 +266,12 @@ ul {
   border-radius: var(--r-lg);
   padding: var(--s24);
   box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
+  border-color: var(--primary);
 }
 
 .card-tag {
@@ -271,8 +288,6 @@ ul {
   margin: var(--s8) 0 var(--s12);
 }
 
-/* flex: 1 pushes everything below it to the bottom,
-   so all card footers line up at the same height. */
 .card-desc {
   flex: 1;
   color: var(--ink-muted);
@@ -294,6 +309,7 @@ ul {
   background-color: var(--surface);
   border: 1px solid var(--border);
   color: var(--ink-muted);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card-link {
@@ -301,7 +317,9 @@ ul {
   color: var(--primary);
 }
 
-/* --------- 8. SKILLS / CONTACT / FOOTER --------- */
+/* ==========================================================================
+   8. TECHNICAL TOOLKIT & CONTACT OVERLAYS
+   ========================================================================== */
 .skills-list {
   display: flex;
   flex-direction: column;
@@ -325,14 +343,15 @@ ul {
   background-color: var(--border);
   border-radius: var(--r-pill);
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .skill-fill {
   height: 100%;
-  /* set width via style="--w:85%;" on element */
   width: var(--w);
   border-radius: var(--r-pill);
   background-color: var(--primary);
+  transition: background-color 0.3s ease;
 }
 
 .contact-lead {
@@ -356,7 +375,7 @@ ul {
   border-radius: var(--r-md);
   background-color: var(--card);
   min-width: 200px;
-  transition: border-color 0.2s ease, transform 0.15s ease;
+  transition: border-color 0.2s ease, transform 0.15s ease, background-color 0.3s ease;
 }
 
 .contact-link:hover {
@@ -375,12 +394,16 @@ ul {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   9. FOOTER & COMPONENT LAYERING
+   ========================================================================== */
 .footer {
   padding: var(--s48) 0;
   border-top: 1px solid var(--border);
   text-align: center;
   color: var(--ink-muted);
   font-size: var(--cap);
+  transition: border-color 0.3s ease;
 }
 
 .footer-muted {
@@ -388,9 +411,6 @@ ul {
   margin-top: var(--s8);
 }
 
-/* --------- 9. BACK-TO-TOP + REVEAL + RESPONSIVE --------- */
-
-/* Back-to-top button: hidden until JS adds .show */
 .to-top {
   position: fixed;
   bottom: var(--s24);
@@ -405,7 +425,7 @@ ul {
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
   box-shadow: var(--shadow);
 }
 
@@ -414,7 +434,9 @@ ul {
   pointer-events: auto;
 }
 
-/* Scroll reveal: elements start hidden, JS adds .is-visible */
+/* ==========================================================================
+   10. INTERSECTION OBSERVER ANIMATIONS & RESPONSIVENESS
+   ========================================================================== */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -426,38 +448,31 @@ ul {
   transform: translateY(0);
 }
 
-/* Respect users who prefer no motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
-
   html {
     scroll-behavior: auto;
   }
 }
 
-/* Mobile: stack things, tighten spacing */
 @media (max-width: 600px) {
   .hero {
     min-height: auto;
     padding: var(--s48) 0;
   }
-
   .nav-links {
     gap: var(--s16);
   }
-
   .nav-links a {
     font-size: var(--cap);
   }
-
   .section {
     padding: var(--s48) 0;
   }
-
   .contact-link {
     width: 100%;
   }
