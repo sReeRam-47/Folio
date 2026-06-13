@@ -1,15 +1,20 @@
 :root {
-  /* Colours */
-  --primary: #5A8FB0;
-  --ink: #1a1a1a;
-  --ink-muted: #6B6B6B;
-  --surface: #FCFAF3;
-  --card: #FFFFFF;
-  --border: #EFE9D8;
-  --pri-high: #C76A55;
-  --pri-med: #C9A23A;
-  --pri-low: #7A9165;
+  /* White & Gold Theme Colours */
+  --primary: #C5A059;       /* Rich Warm Gold */
+  --ink: #1C1A17;           /* Deep Charcoal (Better than pure black for contrast) */
+  --ink-muted: #706B63;     /* Muted bronze-gray for secondary text */
+  --surface: #FFFFFF;       /* Pure White Background Canvas */
+  --card: #FDFBF7;          /* Soft Cream-White for your project cards */
+  --border: #EAE3D2;        /* Elegant, soft gold-tinted borders */
+  
+  /* Priority Accents (Adjusted to blend with a Gold palette) */
+  --pri-high: #D96B43;
+  --pri-med: #C5A059;       /* Matches your gold theme */
+  --pri-low: #6B8E23;
 
+  /* ... Keep your existing type scale and spacing variables underneath ... */
+}
+.
   /* type scale */
   --display: clamp(2.2rem, 6vw, 3.6rem);
   --h1: 2rem;
@@ -41,13 +46,13 @@
 
 /* 2. DARK MODE */
 body.dark {
-  --primary: #7FB3D5;
-  --ink: #F5F1E4;
-  --ink-muted: #9BA3AC;
-  --surface: #0F1419;
-  --card: #1A2332;
-  --border: rgba(255, 255, 255, 0.12);
-  --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --primary: #E5C17D;       /* A slightly brighter gold so it pops against black */
+  --ink: #F5F2EB;           /* Warm ivory text color */
+  --ink-muted: #9E9789;     /* Soft sand gray for subtitles */
+  --surface: #0A0A0A;       /* Pure deep black background canvas */
+  --card: #141414;          /* Subtle off-black card background to create depth */
+  --border: rgba(229, 193, 125, 0.25); /* Gold borders that subtly break up the black */
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
 }
 
 /* 3. RESET + BASE */
@@ -113,15 +118,15 @@ ul {
 }
 
 /* 4. NAVIGATION */
+/* * 4. NAVIGATION */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  transition: background-color 0.3s ease;
+  border-bottom: 2px solid var(--border); /* Enhanced to 2px for a more distinct gold accent line */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .nav-inner {
   display: flex;
   align-items: center;
