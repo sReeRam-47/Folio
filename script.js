@@ -1,13 +1,14 @@
 // ----- 1. DARK MODE TOGGLE -----
-const themeToggle = document.querySelector('#theme-toggle');
+const themeToggle = document.querySelector('.theme-btn');
 
 if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
+  themeToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     document.body.classList.toggle('dark');
 
     const isDark = document.body.classList.contains('dark');
     // Sun for light mode, moon for dark mode
-    themeToggle.textContent = isDark ? '🌙' : '☀️';
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
   });
 }
 
