@@ -7,7 +7,7 @@
   --ink: #1F1B12;           /* Deep golden-charcoal text */
   --ink-muted: #736851;     /* Soft bronze-gray secondary text */
   --surface: #F9F3E3;       /* Warm, rich Honey Gold background canvas */
-  --card: #FFFDF9;          /* Bright clean cream for your project cards */
+  --card: #FFFDF9;          /* Bright clean cream for project cards */
   --border: #E8DCBD;        /* Soft gold border frame lines */
   
   /* System Metrics & Priorities */
@@ -49,11 +49,11 @@
    ========================================================================== */
 body.dark {
   --primary: #E5C17D;                  /* Brighter gold to pop against pitch black */
-  --ink: #F5F2EB !important;           /* Warm ivory text color */
-  --ink-muted: #9E9789 !important;     /* Soft sand gray for subtitles */
-  --surface: #0A0A0A !important;       /* Pure deep black canvas background */
-  --card: #141414 !important;          /* Subtle off-black card surfaces */
-  --border: rgba(229, 193, 125, 0.25); /* Gold lines creating beautiful breaks in black */
+  --ink: #F5F2EB;                      /* Warm ivory text color */
+  --ink-muted: #9E9789;                /* Soft sand gray for subtitles */
+  --surface: #0A0A0A;                  /* Pure deep black canvas background */
+  --card: #141414;                     /* Subtle off-black card surfaces */
+  --border: rgba(229, 193, 125, 0.25);  /* Gold lines creating breaks in black */
   --shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
 }
 
@@ -87,6 +87,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 
 .container {
@@ -127,7 +134,7 @@ ul {
   top: 0;
   z-index: 100;
   background-color: var(--surface);
-  border-bottom: 2px solid var(--border); /* Distinct gold break line */
+  border-bottom: 2px solid var(--border);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -240,7 +247,11 @@ ul {
 
 .btn-primary {
   background-color: var(--primary);
-  color: #fff;
+  color: #1F1B12; /* Dark text for light mode contrast AA compliance */
+}
+
+body.dark .btn-primary {
+  color: #0A0A0A; /* Clean dark text against gold in dark mode */
 }
 
 .btn-secondary {
@@ -348,10 +359,10 @@ ul {
 
 .skill-fill {
   height: 100%;
-  width: var(--w);
+  width: var(--w, 0%); /* Added fallback value */
   border-radius: var(--r-pill);
   background-color: var(--primary);
-  transition: background-color 0.3s ease;
+  transition: width 0.6s ease, background-color 0.3s ease;
 }
 
 .contact-lead {
@@ -420,13 +431,17 @@ ul {
   border: none;
   border-radius: var(--r-pill);
   background-color: var(--primary);
-  color: #fff;
+  color: #1F1B12; /* Matches high contrast primary text */
   font-size: 1.2rem;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, background-color 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
   box-shadow: var(--shadow);
+}
+
+.to-top:hover {
+  transform: translateY(-2px);
 }
 
 .to-top.show {
