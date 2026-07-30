@@ -89,7 +89,24 @@ ul {
   list-style: none;
 }
 
-/* Accessibility Focus States */
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: #1F1B12;
+  padding: var(--s8) var(--s16);
+  z-index: 1000;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus States for Keyboard Navigation */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--primary);
@@ -187,7 +204,7 @@ button:focus-visible {
    ========================================================================== */
 .hero {
   padding: var(--s64) 0;
-  min-height: 78vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
 }
@@ -229,7 +246,7 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   6. ACTIONS & BUTTON TOKEN PARSING
+   6. ACTIONS & BUTTONS
    ========================================================================== */
 .btn {
   display: inline-block;
@@ -247,11 +264,11 @@ button:focus-visible {
 
 .btn-primary {
   background-color: var(--primary);
-  color: #1F1B12; /* Dark text for light mode contrast AA compliance */
+  color: #1F1B12; /* High contrast text in light mode */
 }
 
 body.dark .btn-primary {
-  color: #0A0A0A; /* Clean dark text against gold in dark mode */
+  color: #0A0A0A;
 }
 
 .btn-secondary {
@@ -261,7 +278,7 @@ body.dark .btn-primary {
 }
 
 /* ==========================================================================
-   7. PROJECTS GRID & ARCHITECTURAL CARDS
+   7. PROJECTS GRID
    ========================================================================== */
 .projects-grid {
   display: grid;
@@ -329,7 +346,7 @@ body.dark .btn-primary {
 }
 
 /* ==========================================================================
-   8. TECHNICAL TOOLKIT & CONTACT OVERLAYS
+   8. SKILLS & CONTACT
    ========================================================================== */
 .skills-list {
   display: flex;
@@ -359,7 +376,7 @@ body.dark .btn-primary {
 
 .skill-fill {
   height: 100%;
-  width: var(--w, 0%); /* Added fallback value */
+  width: var(--w, 0%);
   border-radius: var(--r-pill);
   background-color: var(--primary);
   transition: width 0.6s ease, background-color 0.3s ease;
@@ -406,7 +423,7 @@ body.dark .btn-primary {
 }
 
 /* ==========================================================================
-   9. FOOTER & COMPONENT LAYERING
+   9. FOOTER & BACK TO TOP
    ========================================================================== */
 .footer {
   padding: var(--s48) 0;
@@ -431,7 +448,7 @@ body.dark .btn-primary {
   border: none;
   border-radius: var(--r-pill);
   background-color: var(--primary);
-  color: #1F1B12; /* Matches high contrast primary text */
+  color: #1F1B12;
   font-size: 1.2rem;
   cursor: pointer;
   opacity: 0;
@@ -450,7 +467,7 @@ body.dark .btn-primary {
 }
 
 /* ==========================================================================
-   10. INTERSECTION OBSERVER ANIMATIONS & RESPONSIVENESS
+   10. REVEAL ANIMATIONS & RESPONSIVENESS
    ========================================================================== */
 .reveal {
   opacity: 0;
