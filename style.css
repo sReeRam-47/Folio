@@ -92,10 +92,10 @@ ul {
 /* Accessibility Skip Link */
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
+  top: -100px;
+  left: 1rem;
   background: var(--primary);
-  color: #1F1B12;
+  color: #1f1b12;
   padding: var(--s8) var(--s16);
   z-index: 1000;
   font-weight: 600;
@@ -103,7 +103,7 @@ ul {
 }
 
 .skip-link:focus {
-  top: 0;
+  top: 1rem;
 }
 
 /* Focus States for Keyboard Navigation */
@@ -473,12 +473,11 @@ body.dark .btn-primary {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
